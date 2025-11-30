@@ -68,11 +68,11 @@ const AuthScreen = ({ onLogin }) => {
     <div className="min-h-screen flex items-center justify-center bg-gray-50 p-4">
       <div className="bg-white p-8 rounded-2xl shadow-lg max-w-md w-full border border-gray-100">
         <div className="text-center mb-8">
-          <div className="w-16 h-16 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
-            <Sun size={32} />
+          <div className="w-16 h-16 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center mx-auto mb-4 p-3">
+            <img src="/logo.svg" alt="Logo" className="w-full h-full" />
           </div>
           <h1 className="text-2xl font-bold text-gray-900">Productivity Planner</h1>
-          <p className="text-gray-500">Plan your tomorrow, today.</p>
+          <p className="text-gray-500">Plan your tomorrow</p>
         </div>
 
         {error && (
@@ -387,8 +387,10 @@ export default function App() {
         {/* Header */}
         <header className="flex flex-col md:flex-row justify-between items-start md:items-center bg-white p-4 md:p-6 rounded-xl shadow-sm border border-gray-100 gap-4">
           <div className="flex-1">
-            <h1 className="text-xl md:text-2xl font-bold text-gray-900 flex items-center gap-2">
-              <Sun className="text-yellow-500" /> Productivity Planner
+            <h1 className="text-xl md:text-2xl font-bold text-gray-900 flex items-center gap-3">
+              {/* Replaced Sun icon with custom Logo */}
+              <img src="/logo.svg" alt="Logo" className="w-8 h-8" /> 
+              Cloud Planner
             </h1>
             <div className="flex items-center gap-3 mt-2">
               <div className="flex items-center gap-1 bg-orange-50 text-orange-600 px-2 py-0.5 rounded-full text-xs font-bold border border-orange-100" title="Days in a row">
