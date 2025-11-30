@@ -388,7 +388,7 @@ export default function App() {
         <header className="flex flex-col md:flex-row justify-between items-start md:items-center bg-white p-4 md:p-6 rounded-xl shadow-sm border border-gray-100 gap-4">
           <div className="flex-1">
             <h1 className="text-xl md:text-2xl font-bold text-gray-900 flex items-center gap-2">
-              <Sun className="text-yellow-500" /> Cloud Planner
+              <Sun className="text-yellow-500" /> Productivity Planner
             </h1>
             <div className="flex items-center gap-3 mt-2">
               <div className="flex items-center gap-1 bg-orange-50 text-orange-600 px-2 py-0.5 rounded-full text-xs font-bold border border-orange-100" title="Days in a row">
