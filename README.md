@@ -30,18 +30,18 @@
 
 <br />
 
-🖼️ Interface
+-Interface
 
 <p align="center">
   <!-- Replace 'screenshot.png' with the actual filename inside src/assets/ -->
   <img src="src/assets/Screenshot1.png" alt="App Interface" width="100%">
 </p>
 
-📝 About The Project
+About The Project
 
 This project is a full-stack Progressive Web App (PWA) designed to solve the problem of fragmented planning. Unlike standard to-do lists, this planner enforces the "Eat the Frog" methodology and uses AI to declutter your mind.
 
-Key Features:
+-Key Features:
 
 ☁️ Real-Time Cloud Sync: Built on Firebase Firestore; start planning on your laptop and check off items on your phone instantly.
 
@@ -55,7 +55,7 @@ Key Features:
 
 📱 Mobile Optimized: Fully responsive design that works like a native app.
 
-🛠️ Technical Depth
+-Technical Depth
 
 This project was built to demonstrate proficiency in modern React patterns and Serverless architecture.
 
@@ -67,11 +67,11 @@ AI Integration: Direct REST API calls to Google Gemini 2.5 Flash model.
 
 State Management: React Hooks (useState, useEffect) + Real-time Firestore listeners (onSnapshot).
 
-🚀 Getting Started
+-Getting Started
 
 To get a local copy up and running, follow these steps.
 
-Prerequisites
+ Prerequisites
 
 Node.js (v18 or higher)
 
@@ -109,7 +109,7 @@ Run the application
 npm run dev
 
 
-📂 Project Structure
+- Project Structure
 
 productivity-planner/
 ├── src/
@@ -123,7 +123,7 @@ productivity-planner/
 └── README.md
 
 
-🔮 Future Improvements
+- Future Improvements
 
 [ ] Google Calendar Integration: Sync time blocks with G-Cal.
 
@@ -133,7 +133,7 @@ productivity-planner/
 
 [ ] Weekly Analytics: A dashboard showing study hours vs. task completion rates.
 
-🤝 Contact
+- Contact
 
 [[JEEVAN GEORGE](https://www.linkedin.com/in/jeevanjoseph03/)]
 
