@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { 
   Plus, Trash2, Check, BookOpen, Clock, 
   List, Target, Sun, Moon, Bell, BellOff, LogOut, User, Loader,
@@ -152,6 +152,9 @@ export default function App() {
   const [aiSuggestions, setAiSuggestions] = useState([]);
   const [analyzing, setAnalyzing] = useState(false);
 
+  // Ref to track the last saved state to prevent infinite loops
+  const lastSavedData = useRef(null);
+
   // Input States
   const [newSubject, setNewSubject] = useState('');
   const [newTopic, setNewTopic] = useState('');
@@ -223,20 +226,54 @@ export default function App() {
     const unsubscribe = onSnapshot(docRef, (docSnap) => {
       if (docSnap.exists()) {
         const data = docSnap.data();
-        setPriorities(data.priorities || ['', '', '']);
-        setStudySessions(data.studySessions || []);
-        if (data.schedule) setSchedule(data.schedule);
-        setTodos(data.todos || []);
-        setNotes(data.notes || '');
+        
+        // Construct a clean object of what came from the server
+        const incomingData = {
+          priorities: data.priorities || ['', '', ''],
+          studySessions: data.studySessions || [],
+          schedule: data.schedule || [],
+          todos: data.todos || [],
+          notes: data.notes || ''
+        };
+
+        // Handle missing schedule legacy case
+        if (!data.schedule) {
+          const slots = [];
+          for (let i = 6; i <= 23; i++) slots.push({ time: `${i}:00`, task: '' });
+          slots.push({ time: `00:00`, task: '' });
+          incomingData.schedule = slots;
+        }
+
+        // UPDATE REF: Tell our app "This is what the server has right now"
+        // We use JSON.stringify to store a snapshot of the data
+        lastSavedData.current = JSON.stringify(incomingData);
+
+        setPriorities(incomingData.priorities);
+        setStudySessions(incomingData.studySessions);
+        setSchedule(incomingData.schedule);
+        setTodos(incomingData.todos);
+        setNotes(incomingData.notes);
       } else {
-        setPriorities(['', '', '']);
-        setStudySessions([]);
-        setTodos([]);
-        setNotes('');
+        // Default empty state
         const slots = [];
         for (let i = 6; i <= 23; i++) slots.push({ time: `${i}:00`, task: '' });
         slots.push({ time: `00:00`, task: '' });
-        setSchedule(slots);
+        
+        const defaultData = {
+          priorities: ['', '', ''],
+          studySessions: [],
+          schedule: slots,
+          todos: [],
+          notes: ''
+        };
+
+        lastSavedData.current = JSON.stringify(defaultData);
+
+        setPriorities(defaultData.priorities);
+        setStudySessions(defaultData.studySessions);
+        setSchedule(defaultData.schedule);
+        setTodos(defaultData.todos);
+        setNotes(defaultData.notes);
       }
       setDataLoaded(true);
     }, (error) => console.error("Error fetching document:", error));
@@ -249,17 +286,34 @@ export default function App() {
     if (!user || !dataLoaded) return;
 
     const saveData = async () => {
+      // 1. Construct the current state object
+      const currentData = {
+        priorities,
+        studySessions,
+        schedule,
+        todos,
+        notes
+      };
+
+      // 2. Compare with last known server state
+      const currentString = JSON.stringify(currentData);
+      
+      // If nothing actually changed, DO NOT SAVE
+      if (currentString === lastSavedData.current) {
+        return;
+      }
+
       setSaving(true);
       try {
         const docRef = doc(db, 'artifacts', appId, 'users', user.uid, 'plans', date);
         await setDoc(docRef, {
-          priorities,
-          studySessions,
-          schedule,
-          todos,
-          notes,
+          ...currentData,
           lastUpdated: new Date().toISOString()
         });
+        
+        // 3. Update our ref so we know this is now the "clean" state
+        lastSavedData.current = currentString;
+        
       } catch (err) {
         console.error("Error saving", err);
       } finally {
@@ -267,7 +321,8 @@ export default function App() {
       }
     };
 
-    const timeoutId = setTimeout(saveData, 1000);
+    // Increased debounce to 2000ms (2 seconds) to group more keystrokes
+    const timeoutId = setTimeout(saveData, 2000);
     return () => clearTimeout(timeoutId);
 
   }, [priorities, studySessions, schedule, todos, notes, user, date, dataLoaded]);
