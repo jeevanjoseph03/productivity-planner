@@ -23,12 +23,13 @@ const appId = 'productivity-app-v1';
 const apiKey = import.meta.env.VITE_GEMINI_API_KEY;
 
 
-// --- UI Components ---
+
 const Card = ({ children, className = "" }) => (
   <div className={`bg-white rounded-xl shadow-sm border border-gray-100 p-6 ${className}`}>
     {children}
   </div>
 );
+
 
 const SectionHeader = ({ icon: Icon, title, color = "text-gray-800", action }) => (
   <div className="flex items-center justify-between mb-4 border-b border-gray-100 pb-2">
@@ -40,7 +41,7 @@ const SectionHeader = ({ icon: Icon, title, color = "text-gray-800", action }) =
   </div>
 );
 
-const AuthScreen = ({ onLogin }) => {
+const AuthScreen = () => {
   const [isLogin, setIsLogin] = useState(true);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
