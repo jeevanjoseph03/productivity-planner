@@ -32,7 +32,10 @@
 
 🖼️ Interface
 
-(Note: Replace this image with a real screenshot of your app in the assets folder)
+<p align="center">
+  <!-- Replace 'screenshot.png' with the actual filename inside src/assets/ -->
+  <img src="src/assets/Screenshot1.png" alt="App Interface" width="100%">
+</p>
 
 📝 About The Project
 
