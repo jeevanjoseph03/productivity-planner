@@ -22,9 +22,9 @@
 </p>
 
 <h3>
-<a href="https://www.google.com/search?q=https://YOUR-PROJECT-URL.web.app">View Live Demo</a>
+<a href="https://productivity-planner-2371e.web.app/">View Live Demo</a>
 <span> | </span>
-<a href="https://www.google.com/search?q=https://github.com/YOUR-USERNAME/productivity-planner">Report Bug</a>
+<a href="https://www.google.com/search?q=https://github.com/jeevanjoseph03/productivity-planner">Report Bug</a>
 </h3>
 </div>
 
