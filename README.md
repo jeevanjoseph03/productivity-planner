@@ -8,16 +8,16 @@
 
 <p>
 <a href="https://reactjs.org/" target="_blank">
-<img src="https://www.google.com/search?q=https://img.shields.io/badge/react-%252320232a.svg%3Fstyle%3Dfor-the-badge%26logo%3Dreact%26logoColor%3D%252361DAFB" alt="React">
+<img src="https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB" alt="React">
 </a>
 <a href="https://firebase.google.com/" target="_blank">
-<img src="https://www.google.com/search?q=https://img.shields.io/badge/firebase-%2523039BE5.svg%3Fstyle%3Dfor-the-badge%26logo%3Dfirebase" alt="Firebase">
+<img src="https://img.shields.io/badge/firebase-%23039BE5.svg?style=for-the-badge&logo=firebase" alt="Firebase">
 </a>
 <a href="https://tailwindcss.com/" target="_blank">
-<img src="https://www.google.com/search?q=https://img.shields.io/badge/tailwindcss-%252338B2AC.svg%3Fstyle%3Dfor-the-badge%26logo%3Dtailwind-css%26logoColor%3Dwhite" alt="TailwindCSS">
+<img src="https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white" alt="TailwindCSS">
 </a>
 <a href="https://deepmind.google/technologies/gemini/" target="_blank">
-<img src="https://www.google.com/search?q=https://img.shields.io/badge/Gemini_AI-8E75B2%3Fstyle%3Dfor-the-badge%26logo%3Dgooglebard%26logoColor%3Dwhite" alt="Gemini AI">
+<img src="https://img.shields.io/badge/Gemini_AI-8E75B2?style=for-the-badge&logo=googlebard&logoColor=white" alt="Gemini AI">
 </a>
 </p>
 
