@@ -356,6 +356,7 @@ export default function App() {
       if (text) {
         const suggestions = JSON.parse(text);
         setAiSuggestions(suggestions);
+        setNotes(''); // Clear the notes after successful analysis
       }
     } catch (err) {
       console.error("AI Error:", err);
