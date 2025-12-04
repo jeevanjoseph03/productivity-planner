@@ -1,5 +1,5 @@
 <div align="center">
-
+ 
 # Cloud Productivity Planner
 
 **A smart, AI-powered daily planner built for synchronization and focus.**
